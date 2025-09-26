@@ -1,11 +1,42 @@
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
-  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #00274C; /* Michigan blue */
 }
 
 header {
-  background: #004080;
+  background-color: #FFCB05; /* Michigan maize */
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #00274C;
+  font-weight: bold;
+}
+
+#hero {
+  background-color: #00274C;
   color: white;
-  padding: 1rem;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+footer {
+  background-color: #FFCB05;
+  text-align: center;
+  padding: 20px;
 }
