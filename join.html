@@ -56,30 +56,39 @@
         <p class="text-md text-gray-600 mb-8 text-center">
             Sign up to get the latest updates from the MCG Website.
         </p>
+        
+        <!-- Message container for success/error alerts -->
+        <div id="formMessage" class="mt-4 p-4 text-sm rounded-lg text-center hidden" role="alert"></div>
 
-        <form action="#" method="POST" class="space-y-6">
+        <!-- The form now uses JavaScript to submit data -->
+        <form id="joinForm" class="space-y-6">
+            
+            <!-- Hidden input for the webhook URL -->
+            <!-- IMPORTANT: REPLACE THE PLACEHOLDER BELOW with the URL you get from the Google Apps Script deployment -->
+            <input type="hidden" id="scriptUrl" value="https://script.google.com/macros/s/AKfycbwno9jFxJzMlNzIMa4pbzvjfS52sE3BZfiZP7n6Ek6XjhgFWuHvbqVer97CvrY0IqmdWA/exec">
+            
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                <input type="text" name="name" id="name" required
+                <input type="text" name="Full Name" id="name" required
                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:border-indigo-500 transition duration-150"
                        placeholder="Your name">
             </div>
 
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                <input type="email" name="email" id="email" required
+                <input type="email" name="Email" id="email" required
                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:border-indigo-500 transition duration-150"
                        placeholder="you@example.com">
             </div>
 
             <div>
                 <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                <input type="password" name="password" id="password" required
+                <input type="password" name="Password" id="password" required
                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:border-indigo-500 transition duration-150"
                        placeholder="••••••••">
             </div>
 
-            <button type="submit"
+            <button type="submit" id="submitButton"
                     class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition duration-200 focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50">
                 Join Now
             </button>
@@ -95,5 +104,80 @@
     &copy; 2025 MCG Website. All rights reserved.
   </footer>
 
+  <!-- JavaScript for Form Submission -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('joinForm');
+        const formMessage = document.getElementById('formMessage');
+        const submitButton = document.getElementById('submitButton');
+        const scriptUrl = document.getElementById('scriptUrl').value;
+
+        // Function to display messages (success or error)
+        function showMessage(type, message) {
+            formMessage.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+            formMessage.classList.add(
+                type === 'success' ? 'bg-green-100' : 'bg-red-100',
+                type === 'success' ? 'text-green-800' : 'text-red-800'
+            );
+            formMessage.innerHTML = message;
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // 1. Check for placeholder
+            if (scriptUrl === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+                showMessage('error', '🚨 **Setup Required:** Please replace the `YOUR_GOOGLE_APPS_SCRIPT_URL` in the HTML with your deployed Apps Script URL.');
+                return;
+            }
+
+            // 2. Prepare data (excluding password for security when logging to sheet)
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Clean up data for sheet logging (exclude password)
+            const sheetData = {
+                'Full Name': data['Full Name'],
+                'Email': data.Email
+                // Note: Password is NOT sent to the Apps Script for security best practices.
+            };
+
+            // 3. UI changes during submission
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
+            
+            // 4. Send data to Google Apps Script Webhook
+            try {
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    mode: 'cors', // Required for cross-origin requests
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(sheetData)
+                });
+
+                const result = await response.json();
+
+                if (result.result === 'success') {
+                    showMessage('success', '✅ Success! Your sign-up has been logged directly to the Google Sheet.');
+                    form.reset();
+                } else {
+                    // This handles errors returned by the Apps Script (e.g., sheet name wrong)
+                    showMessage('error', `❌ Submission failed: ${result.message || 'An unknown server error occurred.'}`);
+                }
+            } catch (error) {
+                // This handles network errors (e.g., script URL is bad, network connection failed)
+                showMessage('error', `❌ Connection error: Could not reach the server. Check the URL and deployment.`);
+                console.error('Error submitting form:', error);
+            } finally {
+                // 5. Reset UI
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Join Now';
+            }
+        });
+    });
+  </script>
 </body>
 </html>
