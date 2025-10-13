@@ -3,72 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCG Website - About Us</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fb;
-    }
-  </style>
+  <title>About MCG - Strategic Management Consulting</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Learn about MCG's history, mission, and commitment to delivering exceptional strategic consulting services.">
 </head>
-<body class="min-h-screen flex flex-col">
-
-  <!-- Navigation Bar (Updated for active 'About' link) -->
-  <header class="bg-white shadow-md sticky top-0 z-10">
-    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <a href="index.html" class="text-2xl font-bold text-indigo-600 tracking-wider">
-          MCG <span class="text-gray-900">Site</span>
-        </a>
-        
-        <div class="flex space-x-4 md:space-x-8">
-          <a href="index.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-            Home
-          </a>
-          <!-- Active styling for the current 'About' page -->
-          <a href="about.html" class="text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-2 rounded-lg text-sm font-semibold transition duration-150 shadow-md">
-            About
-          </a>
-          <a href="contact.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-            Contact
-          </a>
-          <a href="join.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-            Join
-          </a>
-        </div>
-      </div>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        MCG <span>Consulting</span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Services</a></li>
+        <li><a href="Meet the team.html">Team</a></li>
+        <li><a href="join.html">Careers</a></li>
+      </ul>
     </nav>
   </header>
-  <!-- End of Navigation Bar -->
 
   <!-- Main Content -->
-  <main class="flex-grow max-w-6xl mx-auto p-8 pt-12 md:p-12">
-    <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg border border-indigo-100/50">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            Our Story and Mission
-        </h1>
-        <p class="text-lg text-gray-600 mb-8 max-w-3xl">
-            This is the About Us page, detailing the history and purpose of the MCG Website project. Since this file is named `about.html`, the URL in the browser will reflect that!
-        </p>
+  <main>
+    <section class="container">
+      <div class="section-content">
+        <h1>About MCG Consulting</h1>
+        <p>Founded on the principle that every organization has untapped potential, MCG Consulting has been transforming businesses across industries for over a decade. Our approach combines rigorous analytical thinking with practical implementation expertise to deliver sustainable results.</p>
         
-        <div class="space-y-6">
-            <div class="p-4 border-b border-gray-200">
-                <h3 class="text-2xl font-semibold text-indigo-600 mb-1">Our Mission</h3>
-                <p class="text-gray-700">To demonstrate how simple, clean HTML and consistent navigation makes for a great multi-page static website hosted on GitHub Pages.</p>
-            </div>
-            <div class="p-4 border-b border-gray-200">
-                <h3 class="text-2xl font-semibold text-indigo-600 mb-1">The Team</h3>
-                <p class="text-gray-700">A dedicated team of one (you!) working hard to master web development basics and responsive design.</p>
-            </div>
+        <div class="info-box">
+          <h3>Our Mission</h3>
+          <p>To empower organizations with strategic insights and operational excellence that create lasting competitive advantages and drive exceptional stakeholder value.</p>
         </div>
-    </div>
+        
+        <h2>Our Story</h2>
+        <p>MCG was established in 2013 by a group of former McKinsey, BCG, and Bain consultants who shared a vision of creating a more collaborative and results-focused consulting experience. What started as a boutique strategy firm has grown into a global consulting powerhouse, while maintaining our founding commitment to personalized service and measurable outcomes.</p>
+        
+        <div class="card-grid">
+          <div class="card">
+            <h3>Our Values</h3>
+            <p><strong>Integrity:</strong> We build trust through transparency and ethical practices.<br><br>
+            <strong>Excellence:</strong> We deliver only our best work, every time.<br><br>
+            <strong>Innovation:</strong> We challenge conventional thinking to find breakthrough solutions.</p>
+          </div>
+          
+          <div class="card">
+            <h3>Our Approach</h3>
+            <p><strong>Data-Driven:</strong> Every recommendation is backed by rigorous analysis.<br><br>
+            <strong>Collaborative:</strong> We work as an extension of your team.<br><br>
+            <strong>Results-Focused:</strong> Success is measured by your business outcomes.</p>
+          </div>
+        </div>
+        
+        <h2>Industry Recognition</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Awards & Accolades</h3>
+            <p>• <strong>Consulting Magazine</strong> - Top 10 Strategy Firms (2023, 2024)<br>
+            • <strong>Financial Times</strong> - Most Innovative Consultancy (2023)<br>
+            • <strong>Forbes</strong> - Best Management Consulting Firms (2022-2024)</p>
+          </div>
+          
+          <div class="card">
+            <h3>Client Testimonials</h3>
+            <p><em>"MCG didn't just give us a strategy - they helped us execute it. The results speak for themselves: 40% revenue growth in 18 months."</em><br><br>
+            <strong>- CEO, Fortune 500 Technology Company</strong></p>
+          </div>
+        </div>
+        
+        <div class="info-box">
+          <h3>Ready to Transform Your Business?</h3>
+          <p>Join the 200+ companies that have partnered with MCG to achieve extraordinary results. Let's discuss how we can help unlock your organization's full potential.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="mt-12 py-4 bg-gray-800 text-white text-center text-sm">
-    &copy; 2025 MCG Website. All rights reserved.
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 MCG Consulting Group. All rights reserved. | Confidentiality • Excellence • Results</p>
+    </div>
   </footer>
-
 </body>
 </html>
