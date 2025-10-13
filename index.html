@@ -3,78 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MCG Website - Home</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fb;
-    }
-  </style>
+  <title>MCG - Strategic Management Consulting</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="MCG - Premier strategic management consulting firm delivering exceptional results for businesses worldwide.">
 </head>
-<body class="min-h-screen flex flex-col">
-
-  <!-- Navigation Bar (The Snippet to Reuse) -->
-  <header class="bg-white shadow-md sticky top-0 z-10">
-    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <a href="index.html" class="text-2xl font-bold text-indigo-600 tracking-wider">
-          MCG <span class="text-gray-900">Site</span>
-        </a>
-        
-        <div class="flex space-x-4 md:space-x-8">
-          <!-- Active Link has been updated for better visual clarity -->
-          <a href="index.html" class="text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-2 rounded-lg text-sm font-semibold transition duration-150 shadow-md">
-            Home
-          </a>
-          <a href="about.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-            About
-          </a>
-          <a href="contact.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-            Contact
-          </a>
-          <a href="join.html" class="text-gray-500 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150">
-            Join
-          </a>
-        </div>
-      </div>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        MCG <span>Consulting</span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Services</a></li>
+        <li><a href="Meet the team.html">Team</a></li>
+        <li><a href="join.html">Careers</a></li>
+      </ul>
     </nav>
   </header>
-  <!-- End of Navigation Bar -->
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Strategic Excellence.<br>Delivered.</h1>
+      <p>Partner with MCG Consulting to unlock your organization's full potential. We deliver transformative strategies that drive sustainable growth and competitive advantage.</p>
+      <a href="contact.html" class="cta-button">Start Your Transformation</a>
+    </div>
+  </section>
 
   <!-- Main Content -->
-  <main class="flex-grow max-w-6xl mx-auto p-8 pt-12 md:p-12">
-    <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg border border-indigo-100/50">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            Welcome to the MCG Website!
-        </h1>
-        <p class="text-lg text-gray-600 mb-8 max-w-3xl">
-            This is your main landing page! The consistent navigation bar above allows users to effortlessly jump between your various pages. This structure is perfect for GitHub Pages.
-        </p>
-        <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
-            <h2 class="text-xl font-semibold text-indigo-800 mb-2">How it works:</h2>
-            <p class="text-indigo-700">
-                The link to the Home page is styled with a blue background to show it is the active page.
-                To get the **About** and **Contact** links working, you must have the corresponding files (`about.html` and `contact.html`) saved in the same folder as this file.
-            </p>
+  <main>
+    <section class="container">
+      <div class="section-content">
+        <h2>Why Leading Companies Choose MCG</h2>
+        <p>For over a decade, MCG has been at the forefront of strategic consulting, helping Fortune 500 companies and emerging businesses navigate complex challenges and achieve extraordinary results.</p>
+        
+        <div class="card-grid">
+          <div class="card">
+            <h3>Strategic Planning</h3>
+            <p>Comprehensive strategic frameworks that align your vision with actionable roadmaps for sustainable growth and market leadership.</p>
+          </div>
+          
+          <div class="card">
+            <h3>Operational Excellence</h3>
+            <p>Process optimization and organizational restructuring that delivers measurable efficiency gains and cost reductions.</p>
+          </div>
+          
+          <div class="card">
+            <h3>Digital Transformation</h3>
+            <p>Technology-enabled solutions that modernize operations and create new revenue streams in the digital economy.</p>
+          </div>
         </div>
-        <div class="mt-8 grid md:grid-cols-2 gap-6">
-            <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Next Steps</h3>
-                <p class="text-gray-600">Click the 'About' link to see the next page. All pages use the same navigation for smooth transitions!</p>
-            </div>
-            <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Deployment Tip</h3>
-                <p class="text-gray-600">Ensure all three files (`index.html`, `about.html`, `contact.html`) are in the same folder in your GitHub repository.</p>
-            </div>
+        
+        <div class="info-box">
+          <h3>Proven Track Record</h3>
+          <p>Our consultants have collectively delivered over $2.5 billion in value creation across 200+ engagements, with an average ROI of 450% within 18 months of implementation.</p>
         </div>
-    </div>
+        
+        <div class="card-grid">
+          <div class="card">
+            <h3>Industry Expertise</h3>
+            <p><strong>Technology & Software</strong> • <strong>Financial Services</strong> • <strong>Healthcare</strong> • <strong>Manufacturing</strong> • <strong>Retail & Consumer</strong></p>
+          </div>
+          
+          <div class="card">
+            <h3>Global Reach</h3>
+            <p>Offices in <strong>New York</strong>, <strong>London</strong>, <strong>Singapore</strong>, and <strong>São Paulo</strong> serving clients across 40+ countries worldwide.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="mt-12 py-4 bg-gray-800 text-white text-center text-sm">
-    &copy; 2025 MCG Website. All rights reserved.
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 MCG Consulting Group. All rights reserved. | Confidentiality • Excellence • Results</p>
+    </div>
   </footer>
-
 </body>
 </html>
