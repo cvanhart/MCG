@@ -8,12 +8,18 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <meta name="description" content="Explore recent pro bono projects by MCG where students create real impact while building technical and professional skills.">
+  <style>
+    header .logo img { height: 48px !important; }
+    .section-content > div.header-logo { display:flex; align-items:center; gap:14px; justify-content:center; margin-bottom:12px; }
+    .section-content > div.header-logo img { height: 110px !important; }
+    footer img { height: 36px !important; }
+  </style>
 </head>
 <body>
   <header>
     <nav class="nav-container">
-      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;">
-        <img src="MCG official logo.png" alt="MCG logo" style="height:36px;width:auto;object-fit:contain;" />
+      <a href="index.html" class="logo" style="display:flex;align-items:center;gap:12px;">
+        <img src="MCG official logo.png" alt="MCG logo" />
         <span>MCG <small>Michigan Consulting Group</small></span>
       </a>
       <ul class="nav-links">
@@ -29,8 +35,8 @@
   <main>
     <section class="container">
       <div class="section-content">
-        <div style="display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:10px;">
-          <img src="MCG official logo.png" alt="MCG logo" style="height:48px;width:auto;opacity:.95" />
+        <div class="header-logo">
+          <img src="MCG official logo.png" alt="MCG logo" />
           <h1>Pro Bono Projects</h1>
         </div>
         <p>MCG teams work with nonprofits, social ventures, student founders, and local businesses. Every engagement is an opportunity for students to learn by delivering real value.</p>
@@ -76,8 +82,8 @@
   </main>
 
   <footer>
-    <div class="container" style="display:flex;gap:12px;align-items:center;justify-content:center;">
-      <img src="MCG official logo.png" alt="MCG logo" style="height:24px;width:auto;opacity:.9" />
+    <div class="container" style="display:flex;gap:14px;align-items:center;justify-content:center;">
+      <img src="MCG official logo.png" alt="MCG logo" />
       <p>&copy; 2025 MCG — Michigan Consulting Group. Student-led. Pro bono. Skill-building.</p>
     </div>
   </footer>
